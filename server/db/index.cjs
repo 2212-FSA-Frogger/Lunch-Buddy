@@ -94,11 +94,11 @@ const testUserData = {
 
 const testUserCreate = async () => {
   await db.sync({ force: true });
-  let testUser = await User.create(testUserData);
+  // let testUser = await User.create(ratingData);
   await db.close();
 };
 
-// testUserCreate();
+testUserCreate();
 
 module.exports = {
   Category,
