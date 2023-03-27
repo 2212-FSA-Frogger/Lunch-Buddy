@@ -28,7 +28,8 @@ function App() {
           path="/match/restaurants"
           element={<RestaurantSuggestions />}
         ></Route>
-        <Route path="/match/confirm" element={<MeetingRecap />}></Route>
+        {/* <Route path="/match/confirm" element={<MeetingRecap />}></Route> */}
+        <Route path="/meeting/details" element={<MeetingRecap />} />
       </Routes>
     </div>
   );
