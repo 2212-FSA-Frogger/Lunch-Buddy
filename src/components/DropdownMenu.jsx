@@ -44,6 +44,9 @@ const DropdownMenu = ({ expandMenu, setExpandMenu }) => {
             <DropDownItem handleClick={handleClick}>New Meeting</DropDownItem>
             <DropDownItem handleClick={handleClick}>Messages</DropDownItem>
             <DropDownItem handleClick={handleLogout}>Logout</DropDownItem>
+            <DropDownItem handleClick={handleClick} linkTo="/">
+              Home
+            </DropDownItem>
           </>
         )}
       </ul>

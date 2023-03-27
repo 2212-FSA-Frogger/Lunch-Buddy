@@ -62,8 +62,14 @@ const NavBar = () => {
                 <Link>Hi, {authUser.firstName}</Link>
               </li>
 
-              <li className="flex items-center">
-                <label className="relative inline-flex items-center cursor-pointer">
+              <li className="flex items-center relative">
+                <label
+                  className={`relative inline-flex items-center cursor-pointer ${
+                    userState.status === 'active'
+                      ? "after:content-['Active']"
+                      : "after:content-['Inactive']"
+                  } after:absolute after:-top-4 after:text-xs after:left-1/2 after:-translate-x-1/2 after:text-center`}
+                >
                   <input
                     type="checkbox"
                     value={''}
