@@ -90,7 +90,7 @@ const SignInForm = () => {
       </div>
       <img
         className="w-1/2 hidden lg:block"
-        src="/src/assets/bgImg/signUpView.jpg"
+        src="/assets/bgImg/signInView.jpg"
         alt="top down image of 5 people reaching in to a table of food"
       />
     </div>

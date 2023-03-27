@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import chevronRight from '../../assets/icons/chevron-right.svg';
-import plus from '../../assets/icons/plus.svg';
-import minus from '../../assets/icons/minus.svg';
+import chevronRight from '../../icons/chevron-right.svg';
+import plus from '../../icons/plus.svg';
+import minus from '../../icons/minus.svg';
 
 const TagSelect = ({ setter, tags = [], category }) => {
   const [tagExpand, setTagExpand] = useState(true);

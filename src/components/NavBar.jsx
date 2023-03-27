@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import menuIcon from '../assets/icons/menu.svg';
-import bellIcon from '../assets/icons/notification.svg';
+import menuIcon from '../icons/menu.svg';
+import bellIcon from '../icons/notification.svg';
 import DropdownMenu from './DropdownMenu';
 import { selectAuthUser, tryToken } from '../redux/slices/authSlice';
 import { fetchUser, updateUser } from '../redux/slices/userSlice';

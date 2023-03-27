@@ -238,7 +238,7 @@ const RegisterForm = () => {
       </div>
       <img
         className="w-1/2 hidden lg:block"
-        src="/src/assets/bgImg/signUpView.jpg"
+        src="/assets/bgImg/signUpView.jpg"
         alt="person smearing a dip on toast, at a restaurant with wine, plates, coffee"
       />
     </div>

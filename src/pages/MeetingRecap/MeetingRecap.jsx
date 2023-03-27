@@ -21,7 +21,7 @@ const MeetingRecap = () => {
         </div>
       </div>
       <img
-        src="/src/assets/bgImg/meetingConfView.jpg"
+        src="/assets/bgImg/meetingConfView.jpg"
         alt="Group of friends cheerings champagne glasses"
         className="w-1/2 h-full hidden lg:block object-cover"
       />
