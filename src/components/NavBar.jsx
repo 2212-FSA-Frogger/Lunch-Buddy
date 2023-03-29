@@ -7,6 +7,7 @@ import { selectAuthUser, tryToken } from '../redux/slices/authSlice';
 import { fetchUser, updateUser } from '../redux/slices/userSlice';
 import navbarIcon from '../assets/icons/navbar-icon.svg';
 import xIcon from '../assets/icons/x-icon.svg';
+import { getBusinessInfo } from '../redux/slices/meetingSlice';
 
 const NavBar = () => {
   const [expandMenu, setExpandMenu] = useState(false);
@@ -56,6 +57,11 @@ const NavBar = () => {
             alt="Three lined menu icon button"
             onClick={() => setExpandMenu((prev) => !prev)}
           />
+        </button>
+        <button
+          onClick={() => dispatch(getBusinessInfo('4xvuYoCRCdDBCvcGALUO3g'))}
+        >
+          Test get business
         </button>
         <ul className="flex items-center justify-center gap-8 text-center">
           {/* BUTTONS THAT SHOW ONLY WHEN SIGNED IN */}

@@ -86,6 +86,27 @@ export const getMeeting = createAsyncThunk(
   }
 );
 
+export const getBusinessInfo = createAsyncThunk(
+  'meeting/getBusiness',
+  async (yelpBusinessId, { rejectWithValue }) => {
+    const token = localStorage.getItem('token');
+    try {
+      console.log(API_URL + `/api/search/restaurants/${yelpBusinessId}`);
+      const { data } = await axios.get(
+        API_URL + `/api/search/restaurants/${yelpBusinessId}`,
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+      return data;
+    } catch (error) {
+      rejectWithValue(error);
+    }
+  }
+);
+
 export const deleteMeeting = createAsyncThunk(
   'meeting/deleteMeeting',
   async ({ token, meetingId }, { rejectWithValue }) => {
@@ -195,6 +216,7 @@ const meetingSlice = createSlice({
     isLoading: false,
     error: '',
     status: {},
+    business: {},
   },
   reducers: {
     resetMeetingStatus: (state) => {
@@ -324,6 +346,20 @@ const meetingSlice = createSlice({
       .addCase(upholdRating.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload.response.data;
+      })
+      // Get business info
+      .addCase(getBusinessInfo.fulfilled, (state, action) => {
+        state.business[action.payload.id] = action.payload;
+        state.isLoading = false;
+        state.error = '';
+      })
+      .addCase(getBusinessInfo.rejected, (state, action) => {
+        state.error = action.payload.response.data;
+        state.isLoading = false;
+      })
+      .addCase(getBusinessInfo.pending, (state, action) => {
+        state.isLoading = true;
+        state.error = '';
       });
   },
 });
