@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { io } from 'socket.io-client';
 import { getMeetingMessages, addMessage } from '../redux/slices/meetingSlice';
+import Location from './Location';
 const PORT = import.meta.env.SOCKET_URL || 'http://localhost:3333';
 
 const socket = io.connect(PORT);
@@ -109,9 +110,10 @@ export default function ChatBox() {
 
   return (
     <div className="flex overflow-hidden h-[calc(100vh_-_48px)] orange-linear-bg">
+      <Location />;
       <div className="lg:w-2/5">
         <img
-          src="assets/bgImg/chatView.jpg"
+          src="/assets/bgImg/chatView.jpg"
           alt="Two People eating a bowl of food with chopsticks!"
           className="hidden lg:block object-cover h-full w-full"
         />

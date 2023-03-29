@@ -2,8 +2,8 @@ const demoUsers = [
   {
     firstName: 'Liam',
     lastName: 'Shelton',
-    email: 'lshelton0@gmail.com',
-    password: 'BJB6qr7fdsfsd4ee4',
+    email: 'l@gmail.com',
+    password: '123456789',
     age: 25,
     gender: 'M',
     address1: '2 Crest Line Pass',
