@@ -6,6 +6,7 @@ const {
 } = require('../authMiddleware.cjs');
 
 const { User, Tag, Category } = require('../../db/index.cjs');
+const seedLocalUsers = require('../../utilities/seedLocalUsers.cjs');
 const { Op } = require('sequelize');
 
 // user tag minimums
@@ -32,7 +33,33 @@ router.get('/', requireToken, isAdmin, async (req, res, next) => {
     next(err);
   }
 });
-
+router.post('/local/demo/user', async (req, res, next) => {
+  try {
+    console.log(req.body.localUsers, req.body.center, req.body.radius);
+    await User.update(
+      {
+        lastLong: req.body.center.longitude,
+        lastLat: req.body.center.latitude,
+      },
+      {
+        where: {
+          id: req.body.id,
+        },
+      }
+    );
+    await seedLocalUsers(
+      req.body.localUsers,
+      req.body.center,
+      req.body.radius,
+      req.body.city,
+      req.body.dtate
+    );
+    res.sendStatus(200);
+  } catch (err) {
+    next(err);
+  }
+});
+//
 router.get(
   '/:userId',
   requireToken,

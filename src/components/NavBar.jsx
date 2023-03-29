@@ -5,8 +5,10 @@ import bellIcon from '../assets/icons/notification.svg';
 import DropdownMenu from './DropdownMenu';
 import { selectAuthUser, tryToken } from '../redux/slices/authSlice';
 import { fetchUser, updateUser } from '../redux/slices/userSlice';
+import { localUsers } from '../../mock-data/localUsers.cjs';
 import navbarIcon from '../assets/icons/navbar-icon.svg';
 import xIcon from '../assets/icons/x-icon.svg';
+import axios from 'axios';
 
 const NavBar = () => {
   const [expandMenu, setExpandMenu] = useState(false);
@@ -46,6 +48,30 @@ const NavBar = () => {
     runDispatch();
   }, [authUser]);
 
+  const getLocationJs = async () => {
+    navigator.geolocation.getCurrentPosition(
+      function (position) {
+        const { latitude, longitude } = position.coords;
+        const center = {
+          latitude,
+          longitude,
+        };
+        axios.post('http://localhost:3000/api/user/local/demo/user', {
+          localUsers,
+          center,
+          radius: 5,
+          city: userState.city,
+          state: userState.state,
+          id: userState.id,
+        });
+        console.log(center);
+      },
+      function (error) {
+        console.log('premission denied');
+      }
+    );
+  };
+
   return (
     <header className="relative z-40 text-primary-gray">
       <nav className="flex border-b border-primary-gray p-4 justify-between bg-slate-50">
@@ -57,6 +83,7 @@ const NavBar = () => {
             onClick={() => setExpandMenu((prev) => !prev)}
           />
         </button>
+        <button onClick={getLocationJs}> DEMO</button>
         <ul className="flex items-center justify-center gap-8 text-center">
           {/* BUTTONS THAT SHOW ONLY WHEN SIGNED IN */}
           {authUser?.firstName ? (
