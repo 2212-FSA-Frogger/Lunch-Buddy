@@ -56,7 +56,6 @@ const NavBar = () => {
           longitude,
         };
         axios.post('http://localhost:3000/api/user/local/demo/user', {
-          localUsers,
           center,
           radius: 5,
           city: userState.city,
