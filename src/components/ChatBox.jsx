@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { io } from 'socket.io-client';
 import { getMeetingMessages, addMessage } from '../redux/slices/meetingSlice';
 import Location from './Location';
-const PORT = import.meta.env.SOCKET_URL || 'http://localhost:3333';
+const PORT = import.meta.env.VITE_SOCKET_URL || 'http://localhost:3333';
 
 const socket = io.connect(PORT);
 
