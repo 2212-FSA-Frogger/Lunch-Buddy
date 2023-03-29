@@ -5,7 +5,7 @@ import menuIcon from '../assets/icons/menu.svg';
 import bellIcon from '../assets/icons/notification.svg';
 import DropdownMenu from './DropdownMenu';
 // import { seedLocalUsers } from '../../server/utilities/seedLocalUsers.cjs';
-// import { localUsers } from '../../mock-data/localUsers.cjs';
+import { localUsers } from '../../mock-data/localUsers.cjs';
 import { selectAuthUser, tryToken } from '../redux/slices/authSlice';
 import { fetchUser, updateUser } from '../redux/slices/userSlice';
 
