@@ -33,7 +33,7 @@ router.get('/', requireToken, isAdmin, async (req, res, next) => {
     next(err);
   }
 });
-router.post('/local/demo/user', async (req, res, next) => {
+router.post('/generate/demo', async (req, res, next) => {
   try {
     console.log(req.body.localUsers, req.body.center, req.body.radius);
     await User.update(
