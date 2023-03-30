@@ -42,8 +42,8 @@ const letters = [
 
 const localUsers = [
   {
-    firstName: 'remo',
-    lastName: 'blemo',
+    firstName: 'Andre',
+    lastName: 'Platano (Demo User)',
     email: null,
     password: '123456789',
     age: 25,
@@ -63,8 +63,8 @@ const localUsers = [
     status: 'active',
   },
   {
-    firstName: 'Leticia',
-    lastName: 'Linscott',
+    firstName: 'Lettuce',
+    lastName: 'Fungrass (Demo User)',
     email: null,
     password: 'VtBW9r43wf4e453L',
     age: 23,
@@ -84,8 +84,8 @@ const localUsers = [
     status: 'active',
   },
   {
-    firstName: 'Emma',
-    lastName: 'Padmore',
+    firstName: 'Sarah',
+    lastName: 'Brown (Demo User)',
     email: null,
     password: 'SpXEMQm4533454rff4',
     age: 30,
