@@ -6,7 +6,7 @@ const {
 } = require('../authMiddleware.cjs');
 
 const { User, Tag, Category } = require('../../db/index.cjs');
-const seedLocalUsers = require('../../utilities/seedLocalUsers.cjs');
+const locationSeed = require('../../utilities/locationSeed.cjs');
 const { Op } = require('sequelize');
 
 // user tag minimums
@@ -47,7 +47,7 @@ router.post('/local/demo/user', async (req, res, next) => {
         },
       }
     );
-    await seedLocalUsers(
+    await locationSeed(
       req.body.localUsers,
       req.body.center,
       req.body.radius,
