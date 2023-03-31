@@ -116,7 +116,7 @@ const tagSlice = createSlice({
       })
       .addCase(fetchAllTags.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.error.message;
+        state.error = action.payload.response.data;
       })
 
       // Fetch single tag
@@ -130,7 +130,7 @@ const tagSlice = createSlice({
       })
       .addCase(fetchSingleTag.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.error.message;
+        state.error = action.payload.response.data;
       })
 
       // Edit a tag
@@ -144,7 +144,7 @@ const tagSlice = createSlice({
       })
       .addCase(editTag.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.error.message;
+        state.error = action.payload.response.data;
       })
 
       // Delete a tag
@@ -159,7 +159,7 @@ const tagSlice = createSlice({
       })
       .addCase(deleteTag.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.error.message;
+        state.error = action.payload.response.data;
       })
 
       // Add a tag
@@ -174,7 +174,7 @@ const tagSlice = createSlice({
       })
       .addCase(addTag.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.error.message;
+        state.error = action.payload.response.data;
       });
   },
 });

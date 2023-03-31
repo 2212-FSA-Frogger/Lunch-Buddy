@@ -123,7 +123,7 @@ const authSlice = createSlice({
         state.token = '';
         state.user = {};
         state.isLoading = false;
-        state.error = action.payload.message;
+        state.error = action.payload.response.data;
       })
 
       // async check to make sure a user successfully logs in before redirecting

@@ -101,7 +101,6 @@ const RegisterForm = () => {
     }
     setInputValidator(tempValidator);
     setFormInputs(tempFields);
-    console.log('tempValidator:', tempValidator);
 
     if (
       missingFields.length > 0 &&
@@ -110,8 +109,8 @@ const RegisterForm = () => {
       // console.log(missingFields.join(','));
       // alert(`Missing required fields: ${missingFields.join(', ')}`);
     } else {
-      localStorage.setItem('registerForm', JSON.stringify(formInputs));
-      console.log(formInputs);
+      const inputsCopy = { ...formInputs };
+      localStorage.setItem('registerForm', JSON.stringify(inputsCopy));
       navigate('/register/aboutyourself');
     }
   };
