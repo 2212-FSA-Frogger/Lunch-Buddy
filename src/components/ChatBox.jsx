@@ -5,7 +5,7 @@ import { io } from 'socket.io-client';
 import { getMeetingMessages, addMessage } from '../redux/slices/meetingSlice';
 const PORT = import.meta.env.VITE_SOCKET_URL || 'http://localhost:3333';
 
-const socket = io.connect(PORT);
+const socket = io.connect('https://socket-lb.onrender.com');
 
 export default function ChatBox() {
   // used later for getting proper params
