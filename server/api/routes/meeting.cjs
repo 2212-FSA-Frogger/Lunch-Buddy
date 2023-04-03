@@ -122,9 +122,6 @@ router.delete('/:meetingId', requireToken, isAdmin, async (req, res, next) => {
 router.get('/:meetingId/messages', requireToken, async (req, res, next) => {
   try {
     const meeting = await Meeting.findByPk(req.params.meetingId, {
-      where: {
-        meetingStatus: 'confirmed'
-      },
       include: [
         {
           association: 'user',
