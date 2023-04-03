@@ -6,6 +6,8 @@ import {
   selectMeetings,
   resetMeetingStatus,
 } from '../../redux/slices';
+import axios from 'axios';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
 export default function MeetingRecap(props) {
   const dispatch = useDispatch();
@@ -31,16 +33,27 @@ export default function MeetingRecap(props) {
   // }
 
   const { buddy, timeSlot, restaurant } = location.state;
-
   const newMeeting = {
     buddyId: buddy.id,
     lunchDate: timeSlot.dateObj,
     yelpBusinessId: restaurant.id,
   };
 
-  function handleMeeting() {
-    dispatch(createMeeting({ newMeeting }));
-    navigate('/');
+  async function handleMeeting() {
+    const meeting = await dispatch(createMeeting({ newMeeting }));
+    if (
+      buddy.email.includes('@demo.demo') &&
+      meeting.meta.requestStatus === 'fulfilled'
+    ) {
+      await axios.put(
+        `${API_URL}/api/meeting/${meeting.payload.id}/demo/confirm`
+      );
+      setTimeout(() => {
+        window.location = `/meeting/${meeting.payload.id}/chat`;
+      }, 100);
+    }
+
+    // navigate('/');
   }
 
   return (

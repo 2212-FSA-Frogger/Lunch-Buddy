@@ -127,7 +127,7 @@ async function locationSeed(
       const letternum = Math.floor(Math.random() * 25);
       userEmail += letters[letternum];
     }
-    user.email = `${userEmail}@demo.com`;
+    user.email = `${userEmail}@demo.demo`;
     if (city) {
       user.city = city;
     }

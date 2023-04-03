@@ -36,6 +36,32 @@ router.post('/', requireToken, async (req, res, next) => {
     next(err);
   }
 });
+
+router.put('/:meetingId/demo/confirm', async (req, res, next) => {
+  try {
+    const updatedMeeting = await Meeting.update(
+      { meetingStatus: 'confirmed' },
+      {
+        where: {
+          id: req.params.meetingId,
+          meetingStatus: 'pending',
+        },
+      }
+    );
+    if (updatedMeeting) {
+      res.status(200).send(updatedMeeting);
+    } else {
+      res
+        .status(404)
+        .send(
+          'buddy is either not a demo user or not currently in a meeting with them'
+        );
+    }
+  } catch (err) {
+    next(err);
+  }
+});
+
 router.put('/:meetingId', requireToken, async (req, res, next) => {
   const { isClosed, lunchDate, yelpBusinessId } = req.body;
   const bodyKeys = { isClosed, lunchDate, yelpBusinessId };

@@ -12,6 +12,7 @@ const SAFE_USER_FIELDS = [
   'city',
   'state',
   'avatarUrl',
+  'email',
 ];
 
 module.exports = { SAFE_USER_FIELDS };
